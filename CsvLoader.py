@@ -1,6 +1,7 @@
 import requests, zipfile, io
 
 i=1
+#choose year
 year='2019'
 #Months required
 mons=['JAN','FEB','MAR','APR','MAY','JUN',"JUL","AUG"] 
@@ -17,7 +18,7 @@ while len(mons) >0:
             else:
 
                 z = zipfile.ZipFile(io.BytesIO(r.content))
-                z.extractall(path='C:\\Users\\Shivam\\Trading python\\tutorial-master\\tradingsystem\data')
+                z.extractall(path='YOUR DATA PATH')
                 i+=1
         else:   
             r = requests.get('https://www.nseindia.com/content/historical/EQUITIES/'+year+'/'+str(mon)+'/cm'+str(i)+str(mon)+year+'bhav.csv.zip')
@@ -25,7 +26,7 @@ while len(mons) >0:
                 i+=1
             else:
                 z = zipfile.ZipFile(io.BytesIO(r.content))
-                z.extractall(path='C:\\Users\\Shivam\\Trading python\\tutorial-master\\tradingsystem\data')
+                z.extractall(path='YOUR DATA PATH')
                 i+=1
     i=0
 
